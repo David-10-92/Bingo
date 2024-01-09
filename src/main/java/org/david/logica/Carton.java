@@ -5,16 +5,16 @@ import java.util.*;
 public class Carton {
 
     private Collection<Linea> carton = new ArrayList<>();
-    public Carton(GenereadorNumeros genereadorNumeros){
+    public Carton(IGeneracionNumeros genereadorNumeros){
         for(int linea = 0 ; linea < 3 ; linea ++){
             carton.add(generarLinea(genereadorNumeros));
         }
     }
 
-    private Linea generarLinea(GenereadorNumeros genereadorNumeros){
+    private Linea generarLinea(IGeneracionNumeros genereadorNumeros){
         Collection<Integer> numsLinea = new ArrayList<>();
         for(int numeroLinea = 0; numeroLinea < 5; numeroLinea++){
-            numsLinea.add(genereadorNumeros.generarNumeros());
+            numsLinea.add(genereadorNumeros.generarBolaSinRepetir());
         }
         return new Linea(numsLinea);
     }
@@ -45,7 +45,4 @@ public class Carton {
         else if (algunaLineaTachada) return EstadoPartida.LINEA;
         else return EstadoPartida.INICIADA;
     }
-}
-interface  GenereadorNumeros{
-    int generarNumeros();
 }

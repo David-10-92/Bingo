@@ -8,11 +8,11 @@ import java.util.List;
 
 public class CartonTest {
 
-        GenereadorNumeros genereadorNumeros = new GenereadorNumeros() {
-            private int[] numeros = new int[]{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+        IGeneracionNumeros genereadorNumeros = new IGeneracionNumeros() {
+            private int[] numeros = new int[]{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,2,14};
             private int posicion = 0;
             @Override
-            public int generarNumeros() {
+            public int generarBolaSinRepetir() {
                 return numeros[posicion++];
             }
         };
@@ -25,7 +25,6 @@ public class CartonTest {
         EstadoPartida estadoIniciada = carton.tachar(2);
         Assertions.assertEquals(EstadoPartida.INICIADA,estadoIniciada);
     }
-
     @Test
     void testTachaLinea(){
         carton.tachar(1);
