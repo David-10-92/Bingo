@@ -4,15 +4,13 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Stream;
 
 public class LobbyTest {
 
     @Test
-    void lobbyJugadores(){
+    void lobbyDevuelvePartidaAlAniadir5Jugadores(){
         Lobby lobby = new Lobby();
         List<IJugador> jugadores = Arrays.asList(
                 new JugadorLobby("David"),new JugadorLobby("Mariano"),
@@ -20,12 +18,15 @@ public class LobbyTest {
                 new JugadorLobby("Angel")
         );
 
-        List<Optional<Partida>> optionalList = jugadores.stream().map(lobby::añadirJugador).toList();
-        List<Optional<Partida>> optionalListMenos1 = optionalList.;
+        List<Optional<Partida>> optionalList = jugadores.stream().map(lobby::anadirJugador).toList();
 
         Assertions.assertTrue(optionalList.getLast().isPresent());
-        Assertions.assertTrue(optionalList.removeLast());
+
+        List<Optional<Partida>> allMinusLast = optionalList.subList(0, optionalList.size());
+        Assertions.assertTrue(allMinusLast.stream().allMatch(Optional::isEmpty));
     }
+
+
 }
 
 class JugadorLobby implements IJugador{
