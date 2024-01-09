@@ -7,7 +7,7 @@ import java.util.Optional;
 public class Lobby {
     private final List<IJugador> jugadores = new ArrayList<>();
 
-    public Optional<Partida> añadirJugador(IJugador jugador) {
+    public Optional<Partida> anadirJugador(IJugador jugador) {
         jugadores.add(jugador);
         return nuevaPartida(jugadores);
     }
