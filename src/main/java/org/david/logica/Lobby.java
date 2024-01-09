@@ -13,7 +13,11 @@ public class Lobby {
     }
 
     private static Optional<Partida> nuevaPartida(List<IJugador> jugadores){
-        if(jugadores.size() == 5) return Optional.of(new Partida());
+        if(jugadores.size() == 5) {
+            Partida partida = new Partida();
+            jugadores.clear();
+            return Optional.of(partida);
+        }
         else return Optional.empty();
     }
 
