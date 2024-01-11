@@ -4,12 +4,12 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
-import java.util.function.BooleanSupplier;
-import java.util.stream.Stream;
 
 public class LobbyTest {
 
-    Lobby lobby = new Lobby();
+    GeneracionNumeros generarNumero = new GeneracionNumeros();
+
+    Lobby lobby = new Lobby(generarNumero);
     @Test
     void lobbyJugadores(){
         List<IJugador> jugadores = Arrays.asList(
@@ -58,5 +58,10 @@ class JugadorLobby implements IJugador{
 
     public String getNombre() {
         return nombre;
+    }
+
+    @Override
+    public EstadoPartida tachar(int bola) {
+        return null;
     }
 }
