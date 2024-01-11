@@ -13,17 +13,15 @@ public class Lobby {
         this.generarNumero = generarNumero;
     }
 
-    public Optional<Partida> añadirJugador(IJugador jugador) {
     public Optional<IPartida> añadirJugador(IJugador jugador) {
         jugadores.add(jugador);
         return nuevaPartida(jugadores);
     }
 
-    private Optional<Partida> nuevaPartida(List<IJugador> jugadores){
     private Optional<IPartida> nuevaPartida(List<IJugador> jugadores){
         if(jugadores.size() == 5) {
             Partida partida = new Partida(jugadores, new Bombo(generarNumero));
-            jugadores.clear();
+            jugadores = new ArrayList<>();
             return Optional.of(partida);
         }
         else return Optional.empty();
