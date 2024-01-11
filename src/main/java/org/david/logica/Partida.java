@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class Partida {
+class Partida implements IPartida{
 
     private final Collection<IJugador> jugadores;
     private final IBombo bombo;
@@ -14,6 +14,7 @@ public class Partida {
         this.bombo = bombo;
     }
 
+    @Override
     public IJugador jugar(){
         IJugador ganador = null;
         do{
