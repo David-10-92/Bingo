@@ -2,7 +2,7 @@ package org.david.logica;
 
 import java.util.*;
 
-public class Carton {
+class Carton {
 
     private Collection<Linea> carton = new ArrayList<>();
     public Carton(IGeneracionNumeros genereadorNumeros){
