@@ -1,5 +1,5 @@
 package org.david.logica;
 
 interface IGeneracionNumeros {
-    int generarBolaSinRepetir();
+    int generarNumero1a90();
 }
