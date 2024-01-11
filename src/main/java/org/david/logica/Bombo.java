@@ -1,26 +1,19 @@
 package org.david.logica;
 
-import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class Bombo implements IGeneracionNumeros{
+public class Bombo implements IBombo{
 
-    Set<Integer> bolas = new TreeSet<>();
+    private final IGeneracionNumeros numeros;
+
+    public Bombo(IGeneracionNumeros numeros) {
+        this.numeros = numeros;
+    }
+
     @Override
     public int generarBolaSinRepetir() {
-        if(bolas.size() == 90){
-            throw new BomboVacioExeption();
-        }
-        int num;
-        do{
-            num = generarBola();
-        }while (bolas.contains(num));
-        bolas.add(num);
-        return num;
+        return numeros.generarNumero1a90();
     }
 
-    private int generarBola(){
-        return (int)Math.floor(Math.random()*90+1);
-    }
 }

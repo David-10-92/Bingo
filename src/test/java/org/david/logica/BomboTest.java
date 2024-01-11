@@ -10,9 +10,11 @@ import java.util.TreeSet;
 
 public class BomboTest {
 
+    GeneracionNumeros generarNumero = new GeneracionNumeros();
+
     @Test
     void sacarBolaSinRepetir(){
-        Bombo bombo = new Bombo();
+        Bombo bombo = new Bombo(generarNumero);
         Set<Integer> numeros = new TreeSet<>();
         while (numeros.size()!=90){
             int num = bombo.generarBolaSinRepetir();
@@ -24,7 +26,7 @@ public class BomboTest {
 
     @Test
     void sacarBolaSinRepetir90(){
-        Bombo bombo = new Bombo();
+        Bombo bombo = new Bombo(generarNumero);
         Set<Integer> numeros = new TreeSet<>();
         for(int i = 0; i<90; i++){
             int num = bombo.generarBolaSinRepetir();
@@ -35,14 +37,14 @@ public class BomboTest {
 
     @Test
     void sacarBolaSinRepetir90VariasVeces(){
-        Bombo bombo = new Bombo();
+        Bombo bombo = new Bombo(generarNumero);
         List<Integer> numeros = new ArrayList<>();
         List<Integer> numeros2 = new ArrayList<>();
         for(int i = 0; i<90; i++){
             int num = bombo.generarBolaSinRepetir();
             numeros.add(num);
         }
-        Bombo bombo2 = new Bombo();
+        Bombo bombo2 = new Bombo(generarNumero);
         for(int i = 0; i<90; i++){
             int num = bombo2.generarBolaSinRepetir();
             numeros2.add(num);
@@ -53,7 +55,7 @@ public class BomboTest {
 
     @Test
     void siPedimosMasDe90Numeros(){
-        Bombo bombo = new Bombo();
+        Bombo bombo = new Bombo(generarNumero);
         Set<Integer> numeros = new TreeSet<>();
         for(int i = 0; i<90; i++){
             int num = bombo.generarBolaSinRepetir();
