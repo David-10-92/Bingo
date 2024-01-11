@@ -3,7 +3,7 @@ package org.david.logica;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class Bombo implements IBombo{
+class Bombo implements IBombo{
 
     private final IGeneracionNumeros numeros;
 

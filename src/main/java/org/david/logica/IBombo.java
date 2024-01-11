@@ -1,6 +1,6 @@
 package org.david.logica;
 
-public interface IBombo {
+interface IBombo {
 
     int generarBolaSinRepetir();
 }
