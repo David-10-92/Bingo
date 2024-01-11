@@ -2,7 +2,7 @@ package org.david.logica;
 
 import java.util.Collection;
 
-public class Jugador implements IJugador{
+class Jugador implements IJugador{
 
     private final String name;
     private final Collection<Carton> cartones;
