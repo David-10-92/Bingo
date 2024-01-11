@@ -14,7 +14,7 @@ public class Carton {
     private Linea generarLinea(IGeneracionNumeros genereadorNumeros){
         Collection<Integer> numsLinea = new ArrayList<>();
         for(int numeroLinea = 0; numeroLinea < 5; numeroLinea++){
-            numsLinea.add(genereadorNumeros.generarBolaSinRepetir());
+            numsLinea.add(genereadorNumeros.generarNumero1a90());
         }
         return new Linea(numsLinea);
     }

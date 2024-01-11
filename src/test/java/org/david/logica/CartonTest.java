@@ -12,7 +12,7 @@ public class CartonTest {
             private int[] numeros = new int[]{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,2,14};
             private int posicion = 0;
             @Override
-            public int generarBolaSinRepetir() {
+            public int generarNumero1a90() {
                 return numeros[posicion++];
             }
         };
