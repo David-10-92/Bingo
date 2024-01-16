@@ -27,4 +27,10 @@ class Jugador implements IJugador{
     public String getNombre() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        return "Jugador " +
+                "name=" + name;
+    }
 }
