@@ -15,26 +15,36 @@ class Partida implements IPartida{
     }
 
     @Override
-    public IJugador jugar(){
-        IJugador ganador = null;
+    public Map<EstadoPartida,IJugador> jugar(){
+
+        Map<EstadoPartida,IJugador> ganadores = new LinkedHashMap<>();
+        EstadoPartida estado = EstadoPartida.INICIADA;
+        IJugador ganador;
+
         do{
             int bola = bombo.generarBolaSinRepetir();
             List<EstadoPartida> estadoPartidaStream = jugadores.stream().map(jugador -> jugador.tachar(bola)).toList();
-            List<IJugador> jugadors = new ArrayList<>(jugadores);
-            for(int i = 0; i < estadoPartidaStream.size();i++){
-                if(estadoPartidaStream.get(i).equals(EstadoPartida.BINGO)){
-                    ganador = jugadors.get(i);
-                    break;
-                }else{
-                    ganador = null;
-                }
-            }
-        }while (ganador == null);
+            List<IJugador> jugador = new ArrayList<>(jugadores);
 
-        return ganador;
+                for(EstadoPartida e : estadoPartidaStream){
+                    if(e.equals(EstadoPartida.LINEA) && estado == EstadoPartida.INICIADA){
+                        int indice = estadoPartidaStream.indexOf(EstadoPartida.LINEA);
+                        ganadores.put(estadoPartidaStream.get(indice),jugador.get(indice));
+                        estado = EstadoPartida.LINEA;
+                    }
+                    else if(e.equals(EstadoPartida.BINGO) && estado == EstadoPartida.LINEA){
+                        int indice = estadoPartidaStream.indexOf(EstadoPartida.BINGO);
+                        ganadores.put(estadoPartidaStream.get(indice),jugador.get(indice));
+                        estado = EstadoPartida.BINGO;
+                    }
+                    else{
+                        ganador = null;
+                    }
+                }
+
+        }while (estado != EstadoPartida.BINGO);
+
+        return ganadores;
     }
 
-    //Tachar los cartones de los jugadores
-    //Ver si hay bingo
-    //Ver si hay linea
 }
