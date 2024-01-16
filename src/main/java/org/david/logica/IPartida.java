@@ -1,6 +1,8 @@
 package org.david.logica;
 
+import java.util.Map;
+
 public interface IPartida {
 
-    IJugador jugar();
+    Map<EstadoPartida,IJugador> jugar();
 }

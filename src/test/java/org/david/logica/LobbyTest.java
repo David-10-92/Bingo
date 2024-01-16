@@ -18,8 +18,8 @@ public class LobbyTest {
                 new JugadorLobby("Angel")
         );
 
-        List<Optional<Partida>> optionalList = jugadores.stream().map(lobby::añadirJugador).toList();
-        List<Optional<Partida>> optionalLista = optionalList.subList(0,optionalList.size()-1);
+        List<Optional<IPartida>> optionalList = jugadores.stream().map(lobby::añadirJugador).toList();
+        List<Optional<IPartida>> optionalLista = optionalList.subList(0,optionalList.size()-1);
 
         Assertions.assertTrue(optionalLista.stream().allMatch(Optional::isEmpty));
         Assertions.assertTrue(optionalList.getLast().isPresent());
@@ -40,8 +40,8 @@ public class LobbyTest {
                 new JugadorLobby("Gema"),new JugadorLobby("Jose"),
                 new JugadorLobby("Angel")
         );
-        List<Optional<Partida>> optionalList = jugadores2.stream().map(lobby::añadirJugador).toList();
-        List<Optional<Partida>> optionalLista = optionalList.subList(0,optionalList.size()-1);
+        List<Optional<IPartida>> optionalList = jugadores2.stream().map(lobby::añadirJugador).toList();
+        List<Optional<IPartida>> optionalLista = optionalList.subList(0,optionalList.size()-1);
 
         Assertions.assertTrue(optionalLista.stream().allMatch(Optional::isEmpty));
         Assertions.assertTrue(optionalList.getLast().isPresent());
