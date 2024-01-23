@@ -5,14 +5,18 @@ import org.david.logica.*;
 import java.util.Map;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
+@Component
 public class PorConsola {
 
     private final IGeneracionNumeros generarNumeros; // = new GeneracionNumeros();
     private final Lobby lobby; // = new Lobby(generarNumeros);
 
+    @Autowired
     public PorConsola(IGeneracionNumeros generarNumeros, Lobby lobby) {
         this.generarNumeros = generarNumeros;
         this.lobby = lobby;
@@ -33,10 +37,10 @@ public class PorConsola {
         // Bootstrap the Spring context
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        IGeneracionNumeros generacionNumeros = context.getBean(GeneracionNumeros.class);
-        Lobby lobby = context.getBean(Lobby.class);
+        //IGeneracionNumeros generacionNumeros = context.getBean(GeneracionNumeros.class);
+        //Lobby lobby = context.getBean(Lobby.class);
 
-        PorConsola juego = new PorConsola(generacionNumeros, lobby);
+        PorConsola juego = context.getBean(PorConsola.class);//new PorConsola(generacionNumeros, lobby);
         juego.jugar();
     }
 

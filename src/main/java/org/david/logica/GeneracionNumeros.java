@@ -1,8 +1,11 @@
 package org.david.logica;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Set;
 import java.util.TreeSet;
 
+@Component
 public class GeneracionNumeros implements IGeneracionNumeros{
 
     private final Set<Integer> bolas = new TreeSet<>();

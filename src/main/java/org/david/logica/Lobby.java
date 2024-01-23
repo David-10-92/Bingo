@@ -1,14 +1,19 @@
 package org.david.logica;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Component
 public class Lobby {
 
     private final IGeneracionNumeros generarNumero;
     private final List<IJugador> jugadores = new ArrayList<>();
 
+    @Autowired
     public Lobby(IGeneracionNumeros generarNumero) {
         this.generarNumero = generarNumero;
     }
