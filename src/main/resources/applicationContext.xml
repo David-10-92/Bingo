@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Scan for components and services in the specified package -->
+    <context:component-scan base-package="org.david"/>
+
+    <!-- Define your beans -->
+    <bean id="generadorNumeros" class="org.david.logica.GeneracionNumeros"/>
+
+    <bean id="lobby" class="org.david.logica.Lobby">
+        <constructor-arg name="generarNumero" ref="generadorNumeros"/>
+    </bean>
+</beans>
